@@ -83,14 +83,15 @@ class RCB(BaseMixer):
     model: nn.Module
     dtype_dict: dict
     target: str
+    stable: bool = True
 
-    def __init__(
-            self, stop_after: int, target: str, dtype_dict: Dict[str, str], target_encoder: BaseEncoder):
+    def __init__(self, stop_after: int, target: str, dtype_dict: Dict[str, str], target_encoder: BaseEncoder, 
+                 fit_on_dev: bool):
         super().__init__(stop_after)
         self.dtype_dict = dtype_dict
         self.target = target
         self.target_encoder = target_encoder
-        self.stable = True
+        self.fit_on_dev = fit_on_dev
 
     def fit(self, train_data: EncodedDs, dev_data: EncodedDs) -> None:
         pass

@@ -199,7 +199,17 @@ def generate_json_ai(
     ):
         is_target_predicting_encoder = True
 
-    if is_target_predicting_encoder:
+    if True:
+        mixers = [
+            {
+                "module": "RCB",
+                "args": {
+                    "fit_on_dev": True,
+                    "stop_after": "$problem_definition.seconds_per_mixer",
+                },
+            }
+        ]
+    elif is_target_predicting_encoder:
         mixers = [
             {
                 "module": "Unit",
