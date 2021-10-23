@@ -1,7 +1,7 @@
 # Recycling circuit breaker mixer
 from lightwood.mixer import BaseMixer
 from lightwood.encoder import BaseEncoder
-from lightwood.data import EncodedDs
+from lightwood.data.encoded_ds import EncodedDs
 from typing import Dict
 from lightwood.helpers.torch import LightwoodAutocast
 from torch import nn
@@ -85,7 +85,7 @@ class RCB(BaseMixer):
     target: str
     stable: bool = True
 
-    def __init__(self, stop_after: int, target: str, dtype_dict: Dict[str, str], target_encoder: BaseEncoder, 
+    def __init__(self, stop_after: int, target: str, dtype_dict: Dict[str, str], target_encoder: BaseEncoder,
                  fit_on_dev: bool):
         super().__init__(stop_after)
         self.dtype_dict = dtype_dict

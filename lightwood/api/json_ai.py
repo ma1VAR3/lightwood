@@ -206,6 +206,9 @@ def generate_json_ai(
                 "args": {
                     "fit_on_dev": True,
                     "stop_after": "$problem_definition.seconds_per_mixer",
+                    "dtype_dict": "$dtype_dict",
+                    "target": "$target",
+                    "target_encoder": "$encoders[self.target]",
                 },
             }
         ]
