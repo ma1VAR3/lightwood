@@ -7,6 +7,7 @@ from lightwood.helpers.torch import LightwoodAutocast
 from torch import nn
 import torch
 import pandas as pd
+from lightwood.api.types import PredictionArguments
 
 
 class RCBNet(nn.Module):
@@ -99,6 +100,6 @@ class RCB(BaseMixer):
     def partial_fit(self, train_data: EncodedDs, dev_data: EncodedDs) -> None:
         pass
 
-    def __call__(self, ds: EncodedDs) -> pd.DataFrame:
+    def __call__(self, ds: EncodedDs, args: PredictionArguments) -> pd.DataFrame:
         pass
 
